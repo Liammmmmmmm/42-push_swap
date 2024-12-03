@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:21:35 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/03 12:14:13 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/03 12:43:27 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ int	main(int argc, char **argv)
 {
 	int	*stack_a;
 	int	*stack_b;
-	int	pos_a;
-	int	pos_b;
-
-	pos_a = 0;
-	pos_b = 0;
+	
+	pos_a(0);
+	pos_b(0);
 	if (check_args(argc, argv) == 0)
 		return (print_error(), 1);
 	if (init_stacks(&stack_a, &stack_b, argc, argv) == 0)
