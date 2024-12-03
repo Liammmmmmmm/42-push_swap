@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:20:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/02 12:21:17 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/03 12:08:57 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,17 @@
 
 # include "libft.h"
 
+/* ************************************************************************** */
+/*                                    args                                    */
+/* ************************************************************************** */
+void	print_error(void);
+int		check_args(int argc, char **argv);
+int		check_duplicates(int *tab, int len);
 
+/* ************************************************************************** */
+/*                                    args                                    */
+/* ************************************************************************** */
+int		init_stacks(int **stack_a, int **stack_b, int argc, char **argv);
+void	clear_stacks(int *stack_a, int *stack_b);
 
 #endif
