@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:21:35 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/03 15:57:09 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/03 16:23:59 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,36 +51,7 @@ int	main(int argc, char **argv)
 		return (print_error(), 1);
 	if (check_duplicates(stack_a, argc - 1))
 		return (clear_stacks(stack_a, stack_b), print_error(), 1);
-
-	printstack(stack_a, pos_a(-1), len_a(-1));
-	printstack(stack_b, pos_b(-1), len_b(-1));
-
-	ra();
-
-	printstack(stack_a, pos_a(-1), len_a(-1));
-	printstack(stack_b, pos_b(-1), len_b(-1));
-
-	pb(stack_a, stack_b);
-
-	printstack(stack_a, pos_a(-1), len_a(-1));
-	printstack(stack_b, pos_b(-1), len_b(-1));
-
-	ra();
-
-	printstack(stack_a, pos_a(-1), len_a(-1));
-	printstack(stack_b, pos_b(-1), len_b(-1));
-
-	pa(stack_a, stack_b);
-
-	printstack(stack_a, pos_a(-1), len_a(-1));
-	printstack(stack_b, pos_b(-1), len_b(-1));
-
-	ra();
-
-	printstack(stack_a, pos_a(-1), len_a(-1));
-	printstack(stack_b, pos_b(-1), len_b(-1));
-	
-	// sort algo
+	sort(stack_a, stack_b);
 	clear_stacks(stack_a, stack_b);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:50:07 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/03 14:41:36 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/03 16:14:44 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	pa(int *stack_a, int *stack_b)
 	i = len_a(-1);
 	while (pos_a(-1) < i)
 	{
-		stack_a[i + 1] = stack_a[i];
+		stack_a[i] = stack_a[i - 1];
 		i--;
 	}
 	stack_a[i] = temp;
@@ -56,7 +56,7 @@ void	pb(int *stack_a, int *stack_b)
 	i = len_b(-1);
 	while (pos_b(-1) < i)
 	{
-		stack_b[i + 1] = stack_b[i];
+		stack_b[i] = stack_b[i - 1];
 		i--;
 	}
 	stack_b[i] = temp;
