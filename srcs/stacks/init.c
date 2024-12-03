@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:48:12 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/03 12:56:04 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/03 15:55:25 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	init_stacks(int **stack_a, int **stack_b, int argc, char **argv)
 {
+	int	i;
+	
 	*stack_a = malloc(sizeof(int) * (argc - 1));
 	if (!*stack_a)
 		return (0);
@@ -23,11 +25,14 @@ int	init_stacks(int **stack_a, int **stack_b, int argc, char **argv)
 		free(*stack_a);
 		return (0);
 	}
-	while (argc > 0)
+	i = 0;
+	while (i < argc - 1)
 	{
-		*stack_a[argc - 1] = ft_atoi(argv[argc]);
-		argc--;
+		(*stack_a)[i] = ft_atoi(argv[i + 1]);
+		i++;
 	}
+	len_a(i);
+	len_b(0);
 	return (1);
 }
 
