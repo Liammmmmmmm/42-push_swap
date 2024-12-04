@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:21:24 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/03 15:47:48 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/04 16:13:03 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,5 +153,12 @@ int	len_a(int init);
  * @return the actual len b
  */
 int	len_b(int init);
+
+/* ************************************************************************** */
+
+int	is_sorted(int *stack, int pos, int len);
+int	is_sorted_reverse(int *stack, int pos, int len);
+int	sorted_if_rotated(int *stack, int pos, int len);
+
 
 #endif
