@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:18:11 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/04 17:19:40 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/04 17:42:01 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,6 +200,10 @@ void quick_sort_a(int *stack_a, int *stack_b, int len)
 void	sort(int *stack_a, int *stack_b)
 {
 	quick_sort_a(stack_a, stack_b,  len_a(-1));
+	while (len_b(-1) > 0)
+			pa(stack_a, stack_b);
+	if (!is_sort(stack_a, stack_b))
+		sort(stack_a, stack_b);
 }
 
 /*
