@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:42:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 13:20:59 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/05 15:15:38 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 int		min(int *stack, int len);
 int		max(int *stack, int len);
 
+void	sort(int *stack_a, int *stack_b, int *stack_sorted);
+
 int		first_sort(int **stack_sorted, int *stack_a, int *stack_b, int len);
 void	reinit_stack_a(int *stack_a, int argc, char **argv);
+int	find_quickest_b(int *stack_b, int actual_index, int number);
 
 #endif

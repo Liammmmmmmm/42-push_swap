@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:20:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 11:42:04 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/05 15:01:44 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,21 @@
 # include "stacks.h"
 # include "sort.h"
 
+# define SA 1
+# define SB 2
+# define SS 3
+# define PA 4
+# define PB 5
+# define RA 6
+# define RB 7
+# define RR 8
+# define RRA 9
+# define RRB 10
+# define RRR 11
+
 void	print_error(void);
 int		check_args(int argc, char **argv);
 int		check_duplicates(int *tab, int len);
 
-void	sort(int *stack_a, int *stack_b);
 
 #endif

@@ -6,9 +6,11 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:40:03 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 11:41:25 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/05 15:15:22 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int	min(int *stack, int len)
 {
@@ -38,4 +40,28 @@ int	max(int *stack, int len)
 		i++;
 	}
 	return (maxv);
+}
+
+int	find_quickest_b(int *stack_b, int actual_index, int number)
+{
+	int	up;
+	int	down;
+
+	up = 0;
+	down = 0;
+	while (get_number_b(stack_b, actual_index + up) != number)
+	{
+		if (up > len_b(-1))
+			return (0);
+		up++;
+	}
+	while (get_number_b(stack_b, actual_index - down) != number)
+	{
+		if (down > len_b(-1))
+			return (0);
+		down++;
+	}
+	if (down < up)
+		return (RRB);
+	return (RB);
 }
