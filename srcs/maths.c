@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   maths.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 12:20:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 17:34:18 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/12/05 17:34:04 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/12/05 17:34:11 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "libft.h"
-# include "stacks.h"
-# include "sort.h"
-
-# define SA 1
-# define SB 2
-# define SS 3
-# define PA 4
-# define PB 5
-# define RA 6
-# define RB 7
-# define RR 8
-# define RRA 9
-# define RRB 10
-# define RRR 11
-
-void	print_error(void);
-int		check_args(int argc, char **argv);
-int		check_duplicates(int *tab, int len);
-
-int	root(int n);
-
-#endif
+int	root(int n)
+{
+	int res;
+	
+	res = 0;
+	if (n < 0)
+		return (-1);
+	while ((res + 1) * (res + 1) <= n)
+		res++;
+	return res;
+}

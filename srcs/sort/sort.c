@@ -6,21 +6,39 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:18:11 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 17:05:53 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/05 18:10:25 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+
 #include "push_swap.h"
 
-int	root(int n) {
-	int res;
-	
-	res = 0;
-	if (n < 0)
-		return (-1);
-	while ((res + 1) * (res + 1) <= n)
-		res++;
-	return res;
+void	part_insert_sort_to_b_first(int *stack_a, int *stack_b, int *stack_sorted, int parts)
+{
+	int	part;
+	int	total_len;
+	int	initial_len;
+	int	i;
+
+	part = 1;
+	initial_len = len_a(-1);
+	while (part < parts)
+	{
+		total_len = len_a(-1);
+		i = 0;
+		while (i < total_len)
+		{
+			if (get_number_a(stack_a, 0) < stack_sorted[(part) * (initial_len / parts)])
+				pb(stack_a, stack_b, 1);
+			else
+				ra(1);
+			i++;
+		}
+		part++;
+	}
+	while (len_a(-1) > 0)
+		pb(stack_a, stack_b, 1);
 }
 
 void	part_insert_sort_to_b(int *stack_a, int *stack_b, int *stack_sorted, int parts)
@@ -104,8 +122,8 @@ void	sort(int *stack_a, int *stack_b, int *stack_sorted)
 	int	parts;
 	
 	parts = root(len_a(-1)) / 2;
-	part_insert_sort_to_b(stack_a, stack_b, stack_sorted, parts / 3);
-	part_insert_sort_to_a(stack_a, stack_b, stack_sorted, parts);
-	part_insert_sort_to_b(stack_a, stack_b, stack_sorted, parts * 2);
+	part_insert_sort_to_b_first(stack_a, stack_b, stack_sorted, parts / 4);
+	part_insert_sort_to_a(stack_a, stack_b, stack_sorted, parts / 1.2);
+	part_insert_sort_to_b(stack_a, stack_b, stack_sorted, parts * 3);
 	full_insert_sort(stack_a, stack_b, stack_sorted);
 }

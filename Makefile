@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:16:20 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/05 16:51:14 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/05 17:35:51 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ INCLUDES = -I includes/ -I $(LIBFTDIR)includes/
 
 # Source files
 SRC_DIR  = srcs/
-SRCS     = push_swap.c args.c  \
+SRCS     = push_swap.c args.c maths.c  \
            stacks/circular_buffer.c stacks/init.c stacks/instr_p.c stacks/instr_r.c stacks/instr_rr.c stacks/instr_s.c stacks/conditions.c stacks/get_number.c \
 		   sort/first_sort.c sort/utils.c sort/sort.c sort/controls.c
 
