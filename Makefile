@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:16:20 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/04 16:59:12 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/05 13:28:02 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,9 @@ INCLUDES = -I includes/ -I $(LIBFTDIR)includes/
 
 # Source files
 SRC_DIR  = srcs/
-SRCS     = push_swap.c args.c sort.c  \
-           stacks/circular_buffer.c stacks/init.c stacks/instr_p.c stacks/instr_r.c stacks/instr_rr.c stacks/instr_s.c stacks/conditions.c
+SRCS     = push_swap.c args.c  \
+           stacks/circular_buffer.c stacks/init.c stacks/instr_p.c stacks/instr_r.c stacks/instr_rr.c stacks/instr_s.c stacks/conditions.c stacks/get_number.c \
+		   sort/first_sort.c sort/utils.c sort/sort.c
 
 # Object files directory
 OBJ_DIR  = .obj/
@@ -42,7 +43,7 @@ OBJ      = $(SRCS:%.c=$(OBJ_DIR)%.o)
 
 # Remake all if modified
 REMAKE   = libft/includes/libft.h libft/includes/ft_printf.h libft/includes/get_next_line.h libft/Makefile  \
-           Makefile includes/push_swap.h includes/stacks.h
+           Makefile includes/push_swap.h includes/stacks.h includes/sort.h
 
 # Pattern rule for object files
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(REMAKE)

@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:21:24 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/04 16:13:03 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/05 13:08:09 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	clear_stacks(int *stack_a, int *stack_b);
  *
  * @param stack_a Pointer to the stack `a`.
  */
-void	sa(int *stack_a);
+void	sa(int *stack_a, int print);
 
 /**
  * @brief Swap the first two elements of stack b.
@@ -34,7 +34,7 @@ void	sa(int *stack_a);
  *
  * @param stack_b Pointer to the stack `b`.
  */
-void	sb(int *stack_b);
+void	sb(int *stack_b, int print);
 
 /**
  * @brief Swap the first two elements of both stacks simultaneously.
@@ -46,7 +46,7 @@ void	sb(int *stack_b);
  * @param stack_a Pointer to the stack `a`.
  * @param stack_b Pointer to the stack `b`.
  */
-void	ss(int *stack_a, int *stack_b);
+void	ss(int *stack_a, int *stack_b, int print);
 
 /**
  * @brief Push the top element of stack b onto stack a.
@@ -57,7 +57,7 @@ void	ss(int *stack_a, int *stack_b);
  * @param stack_a Pointer to the stack `a`.
  * @param stack_b Pointer to the stack `b`.
  */
-void	pa(int *stack_a, int *stack_b);
+void	pa(int *stack_a, int *stack_b, int print);
 
 /**
  * @brief Push the top element of stack a onto stack b.
@@ -68,7 +68,7 @@ void	pa(int *stack_a, int *stack_b);
  * @param stack_a Pointer to the stack `a`.
  * @param stack_b Pointer to the stack `b`.
  */
-void	pb(int *stack_a, int *stack_b);
+void	pb(int *stack_a, int *stack_b, int print);
 
 /**
  * @brief Rotate operations for stacks.
@@ -76,7 +76,7 @@ void	pb(int *stack_a, int *stack_b);
  * Shifts all elements of stack `a` up by one position.
  * The first element becomes the last.
  */
-void	ra(void);
+void	ra(int print);
 
 /**
  * @brief Rotate operations for stacks.
@@ -84,14 +84,14 @@ void	ra(void);
  * Shifts all elements of stack `b` up by one position.
  * The first element becomes the last.
  */
-void	rb(void);
+void	rb(int print);
 
 /**
  * @brief Rotate operations for stacks.
  * 
  * Executes both `ra` and `rb` simultaneously.
  */
-void	rr(void);
+void	rr(int print);
 
 /**
  * @brief Reverse rotate operations for stacks.
@@ -99,7 +99,7 @@ void	rr(void);
  * Shifts all elements of stack `a` down by one position.
  * The last element becomes the first.
  */
-void	rra(void);
+void	rra(int print);
 
 /**
  * @brief Reverse rotate operations for stacks.
@@ -107,14 +107,14 @@ void	rra(void);
  * Shifts all elements of stack `b` down by one position.
  * The last element becomes the first.
  */
-void	rrb(void);
+void	rrb(int print);
 
 /**
  * @brief Reverse rotate operations for stacks.
  * 
  * Executes both `rra` and `rrb` simultaneously.
  */
-void	rrr(void);
+void	rrr(int print);
 
 /* ************************************************************************** */
 
@@ -154,11 +154,16 @@ int	len_a(int init);
  */
 int	len_b(int init);
 
+int	get_number_a(int *stack_a, int index);
+int	get_number_b(int *stack_b, int index);
+
 /* ************************************************************************** */
 
-int	is_sorted(int *stack, int pos, int len);
-int	is_sorted_reverse(int *stack, int pos, int len);
-int	sorted_if_rotated(int *stack, int pos, int len);
+
+
+// int	is_sorted(int *stack, int pos, int len);
+// int	is_sorted_reverse(int *stack, int pos, int len);
+// int	sorted_if_rotated(int *stack, int pos, int len);
 
 
 #endif

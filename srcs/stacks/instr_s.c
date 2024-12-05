@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:50:09 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/03 14:13:15 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/05 13:09:35 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,24 @@ void	instr_s(int *tab, int len, int pos)
 	}
 }
 
-void	sa(int *stack_a)
+void	sa(int *stack_a, int print)
 {
 	instr_s(stack_a, len_a(-1), pos_a(-1));
-	ft_putstr_fd("sa\n", 1);
+	if (print)
+		ft_putstr_fd("sa\n", 1);
 }
 
-void	sb(int *stack_b)
+void	sb(int *stack_b, int print)
 {
 	instr_s(stack_b, len_b(-1), pos_b(-1));
-	ft_putstr_fd("sb\n", 1);
+	if (print)
+		ft_putstr_fd("sb\n", 1);
 }
 
-void	ss(int *stack_a, int *stack_b)
+void	ss(int *stack_a, int *stack_b, int print)
 {
 	instr_s(stack_a, len_a(-1), pos_a(-1));
 	instr_s(stack_b, len_b(-1), pos_b(-1));
-	ft_putstr_fd("ss\n", 1);
+	if (print)
+		ft_putstr_fd("ss\n", 1);
 }

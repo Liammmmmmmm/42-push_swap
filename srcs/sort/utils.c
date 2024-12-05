@@ -1,26 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/02 12:20:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 11:42:04 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/12/05 11:40:03 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/12/05 11:41:25 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+int	min(int *stack, int len)
+{
+	int i;
+	int minv = 2147483647;
 
-# include "libft.h"
-# include "stacks.h"
-# include "sort.h"
+	i = 0;
+	while (i < len)
+	{
+		if (stack[i] < minv)
+			minv = stack[i];
+		i++;
+	}
+	return (minv);
+}
 
-void	print_error(void);
-int		check_args(int argc, char **argv);
-int		check_duplicates(int *tab, int len);
+int	max(int *stack, int len)
+{
+	int i;
+	int maxv = -2147483648;
 
-void	sort(int *stack_a, int *stack_b);
-
-#endif
+	i = 0;
+	while (i < len)
+	{
+		if (stack[i] < maxv)
+			maxv = stack[i];
+		i++;
+	}
+	return (maxv);
+}

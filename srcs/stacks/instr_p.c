@@ -6,13 +6,13 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:50:07 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/04 15:53:31 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/05 13:09:18 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(int *stack_a, int *stack_b)
+void	pa(int *stack_a, int *stack_b, int print)
 {
 	int temp;
 	int	i;
@@ -37,10 +37,11 @@ void	pa(int *stack_a, int *stack_b)
 	if (pos_b(-1) == len_b(-1))
 		pos_b(0);
 	len_a(len_a(-1) + 1);
-	ft_putstr_fd("pa\n", 1);
+	if (print)
+		ft_putstr_fd("pa\n", 1);
 }
 
-void	pb(int *stack_a, int *stack_b)
+void	pb(int *stack_a, int *stack_b, int print)
 {
 	int temp;
 	int	i;
@@ -65,5 +66,6 @@ void	pb(int *stack_a, int *stack_b)
 	if (pos_a(-1) == len_a(-1))
 		pos_a(0);
 	len_b(len_b(-1) + 1);
-	ft_putstr_fd("pb\n", 1);
+	if (print)
+		ft_putstr_fd("pb\n", 1);
 }

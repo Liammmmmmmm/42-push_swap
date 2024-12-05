@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:50:04 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/03 13:41:39 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/05 13:09:30 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,24 @@ void	instr_rrb(int len)
 		pos_b(len - 1);
 }
 
-void	rra(void)
+void	rra(int print)
 {
 	instr_rra(len_a(-1));
-	ft_putstr_fd("rra\n", 1);
+	if (print)
+		ft_putstr_fd("rra\n", 1);
 }
 
-void	rrb(void)
+void	rrb(int print)
 {
 	instr_rrb(len_b(-1));
-	ft_putstr_fd("rrb\n", 1);
+	if (print)
+		ft_putstr_fd("rrb\n", 1);
 }
 
-void	rrr(void)
+void	rrr(int print)
 {
 	instr_rra(len_a(-1));
 	instr_rrb(len_b(-1));
-	ft_putstr_fd("rrr\n", 1);
+	if (print)
+		ft_putstr_fd("rrr\n", 1);
 }
