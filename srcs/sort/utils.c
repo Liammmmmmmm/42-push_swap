@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:40:03 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 17:09:50 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/06 13:53:34 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int	min(int *stack, int len)
 {
-	int i;
-	int minv = 2147483647;
+	int	i;
+	int	minv;
 
+	minv = 2147483647;
 	i = 0;
 	while (i < len)
 	{
@@ -29,9 +30,10 @@ int	min(int *stack, int len)
 
 int	max(int *stack, int len)
 {
-	int i;
-	int maxv = -2147483648;
+	int	i;
+	int	maxv;
 
+	maxv = -2147483648;
 	i = 0;
 	while (i < len)
 	{

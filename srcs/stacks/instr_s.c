@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:50:09 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 13:09:35 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/06 13:49:57 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	instr_s(int *tab, int len, int pos)
 {
-	int temp;
-	
+	int	temp;
+
 	if (len < 2)
 		return ;
-	if(pos < len - 1)
+	if (pos < len - 1)
 	{
 		temp = tab[pos];
 		tab[pos] = tab[pos + 1];

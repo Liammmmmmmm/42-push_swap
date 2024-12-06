@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:20:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 17:34:18 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/06 15:03:03 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	print_error(void);
 int		check_args(int argc, char **argv);
 int		check_duplicates(int *tab, int len);
 
-int	root(int n);
+int		root(int n);
+int		power(int nb, int exponent);
 
 #endif

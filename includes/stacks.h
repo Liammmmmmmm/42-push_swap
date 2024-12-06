@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:21:24 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 13:08:09 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/06 13:45:53 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int		init_stacks(int **stack_a, int **stack_b, int argc, char **argv);
 void	clear_stacks(int *stack_a, int *stack_b);
+void	replace_nb_by_index(int *stack_a, int *stack_sorted, int stack_len);
 
 /**
  * @brief Swap the first two elements of stack a.
@@ -143,7 +144,7 @@ int		pos_b(int init);
  *             actual len
  * @return the actual len a
  */
-int	len_a(int init);
+int		len_a(int init);
 
 /**
  * Get len b with len_b(-1), set len b with len_b(number)
@@ -152,18 +153,11 @@ int	len_a(int init);
  *             actual len
  * @return the actual len b
  */
-int	len_b(int init);
+int		len_b(int init);
 
-int	get_number_a(int *stack_a, int index);
-int	get_number_b(int *stack_b, int index);
+int		get_number_a(int *stack_a, int index);
+int		get_number_b(int *stack_b, int index);
 
 /* ************************************************************************** */
-
-
-
-// int	is_sorted(int *stack, int pos, int len);
-// int	is_sorted_reverse(int *stack, int pos, int len);
-// int	sorted_if_rotated(int *stack, int pos, int len);
-
 
 #endif

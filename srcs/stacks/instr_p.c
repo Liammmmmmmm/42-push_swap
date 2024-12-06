@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:50:07 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 13:09:18 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/06 13:48:52 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	pa(int *stack_a, int *stack_b, int print)
 {
-	int temp;
+	int	temp;
 	int	i;
 
 	if (len_b(-1) == 0)
@@ -43,7 +43,7 @@ void	pa(int *stack_a, int *stack_b, int print)
 
 void	pb(int *stack_a, int *stack_b, int print)
 {
-	int temp;
+	int	temp;
 	int	i;
 
 	if (len_a(-1) == 0)

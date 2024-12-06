@@ -6,13 +6,13 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:21:35 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 14:54:45 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/06 13:46:48 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void printstack(int *stack, int pos, int len)
+void	printstack(int *stack, int pos, int len)
 {
 	int	i;
 
@@ -39,7 +39,7 @@ int	main(int argc, char **argv)
 	int	*stack_sorted;
 	int	*stack_a;
 	int	*stack_b;
-	
+
 	stack_a = NULL;
 	stack_b = NULL;
 	stack_sorted = NULL;
@@ -54,9 +54,7 @@ int	main(int argc, char **argv)
 	if (first_sort(&stack_sorted, stack_a, stack_b, argc - 1) == 0)
 		return (print_error(), 1);
 	reinit_stack_a(stack_a, argc, argv);
+	replace_nb_by_index(stack_a, stack_sorted, len_a(-1));
 	sort(stack_a, stack_b, stack_sorted);
-	// printstack(stack_a, pos_a(-1), len_a(-1));
-	// printstack(stack_b, pos_b(-1), len_b(-1));
-	// printstack(stack_sorted, 0, argc - 1);
 	return (clear_stacks(stack_a, stack_b), free(stack_sorted), 0);
 }

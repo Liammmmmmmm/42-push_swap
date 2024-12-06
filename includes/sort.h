@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:42:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 17:10:00 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/06 15:19:45 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@ int		min(int *stack, int len);
 int		max(int *stack, int len);
 
 void	sort(int *stack_a, int *stack_b, int *stack_sorted);
+void	mysort(int *stack_a, int *stack_b, int *stack_sorted);
+void	radix_sort_base(int *stack_a, int *stack_b, int *stack_sorted, int b);
+void	bbeg_sort(int *stack_a, int *stack_b, int *stack_sorted);
+void	bubble_sort(int	*stack_a);
 
 int		first_sort(int **stack_sorted, int *stack_a, int *stack_b, int len);
 void	reinit_stack_a(int *stack_a, int argc, char **argv);
