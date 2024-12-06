@@ -6,11 +6,11 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:18:11 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/05 18:10:25 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/06 11:01:00 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+// https://www.youtube.com/watch?v=21jEd1FUiV8
 
 #include "push_swap.h"
 
@@ -23,7 +23,7 @@ void	part_insert_sort_to_b_first(int *stack_a, int *stack_b, int *stack_sorted, 
 
 	part = 1;
 	initial_len = len_a(-1);
-	while (part < parts)
+	while ((part < parts))
 	{
 		total_len = len_a(-1);
 		i = 0;
@@ -37,8 +37,15 @@ void	part_insert_sort_to_b_first(int *stack_a, int *stack_b, int *stack_sorted, 
 		}
 		part++;
 	}
-	while (len_a(-1) > 0)
-		pb(stack_a, stack_b, 1);
+	total_len = len_a(-1);
+	i = -1;
+	while (++i < total_len)
+	{
+		if (get_number_a(stack_a, 0) < stack_sorted[part * initial_len / parts - (initial_len / parts / 4)])
+			pb(stack_a, stack_b, 1);
+		else
+			ra(1);
+	}
 }
 
 void	part_insert_sort_to_b(int *stack_a, int *stack_b, int *stack_sorted, int parts)
