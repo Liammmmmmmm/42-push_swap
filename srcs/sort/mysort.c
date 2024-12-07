@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:40:43 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/07 13:07:04 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/07 13:40:00 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ void	i_to_b_first(int *stack_a, int *stack_b, int *stack_sorted, int parts)
 
 	part = 0;
 	i_len = len_a(-1);
+	if (parts == 0)
+		parts = 1;
 	while (++part < parts)
 		move_to_b(stack_a, stack_b,
 			stack_sorted[part * (i_len / parts)]);
 	move_to_b(stack_a, stack_b,
-		stack_sorted[part * i_len / parts - i_len / parts / 4]);
+		stack_sorted[part * (i_len / parts) - (i_len / parts) / 4]);
 }
 
 void	i_to_b(int *stack_a, int *stack_b, int *stack_sorted, int parts)
@@ -35,6 +37,8 @@ void	i_to_b(int *stack_a, int *stack_b, int *stack_sorted, int parts)
 
 	part = 1;
 	i_len = len_a(-1);
+	if (parts == 0)
+		parts = 1;
 	while (part < parts)
 	{
 		total_len = len_a(-1);
@@ -61,6 +65,8 @@ void	i_to_a(int *stack_a, int *stack_b, int *stack_sorted, int parts)
 
 	part = 1;
 	i_len = len_b(-1);
+	if (parts == 0)
+		parts = 1;
 	while (part < parts)
 	{
 		total_len = len_b(-1);

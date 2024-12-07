@@ -6,11 +6,11 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 13:34:13 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/06 13:51:27 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/07 13:28:11 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_sorted(int *stack, int pos, int len)
+int	is_sorted_old(int *stack, int pos, int len)
 {
 	int	i;
 	int	last;
@@ -37,7 +37,7 @@ int	is_sorted(int *stack, int pos, int len)
 	return (1);
 }
 
-int	is_sorted_reverse(int *stack, int pos, int len)
+int	is_sorted_old_reverse(int *stack, int pos, int len)
 {
 	int	i;
 	int	last;
@@ -71,7 +71,7 @@ int	sorted_if_rotated(int *stack, int pos, int len)
 	i = 0;
 	while (i < len)
 	{
-		if (is_sorted(stack, i, len))
+		if (is_sorted_old(stack, i, len))
 			return (i - pos);
 		i++;
 	}
