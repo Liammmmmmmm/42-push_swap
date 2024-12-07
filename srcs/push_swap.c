@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:21:35 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/06 13:46:48 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/06 15:52:53 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	main(int argc, char **argv)
 	stack_sorted = NULL;
 	if (argc < 2)
 		return (print_error(), 1);
+	if (argc == 2)
+		return (0);
 	if (check_args(argc, argv) == 0)
 		return (print_error(), 1);
 	if (init_stacks(&stack_a, &stack_b, argc, argv) == 0)

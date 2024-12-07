@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maths.c                                            :+:      :+:    :+:   */
+/*   mysort_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/05 17:34:04 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/07 13:02:56 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/12/07 12:59:56 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/12/07 13:00:19 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	root(int n)
-{
-	int	res;
+#include "push_swap.h"
 
-	res = 0;
-	if (n < 0)
-		return (-1);
-	while ((res + 1) * (res + 1) <= n)
-		res++;
-	return (res);
-}
-
-int	power(int nb, int exponent)
+void	move_to_b(int *stack_a, int *stack_b, int limit)
 {
-	int	result;
+	int	total_len;
 	int	i;
 
-	result = 1;
-	i = 0;
-	while (i < exponent)
+	total_len = len_a(-1);
+	i = -1;
+	while (++i < total_len)
 	{
-		result *= nb;
-		i++;
+		if (get_number_a(stack_a, 0) < limit)
+			pb(stack_a, stack_b, 1);
+		else
+			ra(1);
 	}
-	return (result);
 }

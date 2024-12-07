@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:40:43 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/06 15:06:19 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/07 13:07:04 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,15 @@
 void	i_to_b_first(int *stack_a, int *stack_b, int *stack_sorted, int parts)
 {
 	int	part;
-	int	total_len;
 	int	i_len;
-	int	i;
 
 	part = 0;
 	i_len = len_a(-1);
 	while (++part < parts)
-	{
-		total_len = len_a(-1);
-		i = -1;
-		while (++i < total_len)
-		{
-			if (get_number_a(stack_a, 0)
-				< stack_sorted[(part) * (i_len / parts)])
-				pb(stack_a, stack_b, 1);
-			else
-				ra(1);
-		}
-	}
-	total_len = len_a(-1);
-	i = -1;
-	while (++i < total_len)
-	{
-		if (get_number_a(stack_a, 0)
-			< stack_sorted[part * i_len / parts - i_len / parts / 4])
-			pb(stack_a, stack_b, 1);
-		else
-			ra(1);
-	}
+		move_to_b(stack_a, stack_b,
+			stack_sorted[part * (i_len / parts)]);
+	move_to_b(stack_a, stack_b,
+		stack_sorted[part * i_len / parts - i_len / parts / 4]);
 }
 
 void	i_to_b(int *stack_a, int *stack_b, int *stack_sorted, int parts)
@@ -132,4 +112,6 @@ void	mysort(int *stack_a, int *stack_b, int *stack_sorted)
 	i_to_a(stack_a, stack_b, stack_sorted, parts / 1.2);
 	i_to_b(stack_a, stack_b, stack_sorted, parts * 3);
 	full_insert_sort(stack_a, stack_b, stack_sorted);
+	while (len_b(-1))
+		pa(stack_a, stack_b, 1);
 }
