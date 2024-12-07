@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:39:13 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/06 13:52:30 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/07 17:30:37 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	first_sort(int **stack_sorted, int *stack_a, int *stack_b, int len)
 	while (len_b(-1) > 0)
 		pa(stack_a, stack_b, 0);
 	*stack_sorted = malloc(sizeof(int) * (len));
-	if (!*stack_b)
+	if (!*stack_sorted)
 		return (clear_stacks(stack_a, stack_b), 0);
 	i = -1;
 	while (++i < len)

@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:45:30 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/07 13:09:44 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/07 16:16:57 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,36 @@ void	sort_four_a(int *stack_a)
 		rra(1);
 	}
 	sort_three_a(stack_a);
+}
+
+void	sort_five_a(int *stack_a, int *stack_b)
+{
+	int	i;
+	int	pushed;
+	int	rotations;
+
+	i = -1;
+	pushed = 0;
+	rotations = 0;
+	while (++i < 5)
+	{
+		if (get_number_a(stack_a, 0) == 0 || get_number_a(stack_a, 0) == 1)
+		{
+			pb(stack_a, stack_b, 1);
+			pushed++;
+		}
+		else
+		{
+			ra(1);
+			rotations++;
+		}
+		if (pushed == 2)
+			break ;
+	}
+	while (rotations-- > 0)
+		rra(1);
+	sort_three_a(stack_a);
+	sort_two_b(stack_b);
+	while (len_b(-1) > 0)
+		pa(stack_a, stack_b, 1);
 }

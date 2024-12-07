@@ -6,36 +6,13 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 16:15:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/28 16:40:41 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/07 16:58:55 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_count_words(char const *str, char c)
-{
-	int		is_new_word;
-	size_t	count;
-	size_t	i;
-
-	i = 0;
-	count = 0;
-	is_new_word = 1;
-	while (str[i])
-	{
-		if (str[i] == c && is_new_word == 0)
-			is_new_word = 1;
-		else if (str[i] != c && is_new_word == 1)
-		{
-			is_new_word = 0;
-			count++;
-		}
-		i++;
-	}
-	return (count);
-}
-
-static char	**ft_free_tab(char **tab, size_t i)
+static char	**ft_free_tab_rtnull(char **tab, size_t i)
 {
 	size_t	c;
 
@@ -81,13 +58,13 @@ char	**ft_split(char const *s, char c)
 		{
 			tab[count] = ft_substr(s, temp, i - 1 - temp);
 			if (!tab[count++])
-				return (ft_free_tab(tab, count - 1));
+				return (ft_free_tab_rtnull(tab, count - 1));
 			temp = -1;
 		}
 	}
 	if (temp != -1)
 		tab[count++] = ft_substr(s, temp, i - 1 - temp);
 	if (!tab[count - 1] && ft_count_words(s, c) != 0)
-		return (ft_free_tab(tab, count - 1));
+		return (ft_free_tab_rtnull(tab, count - 1));
 	return (tab);
 }

@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:16:20 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/07 13:56:35 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/07 17:25:43 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,12 +47,12 @@ REMAKE   = libft/includes/libft.h libft/includes/ft_printf.h libft/includes/get_
 
 # NORMINETTE
 NORM_RET = Norminette ERROR
-NORM	 = $(shell norminette | grep -c 'Error!')
-ifeq ($(NORM), 0)
-	NORM_RET = $(GREEN)[DONE] $(YELLOW2)Norminette.$(NC)
-else
-	NORM_RET = $(RED)[ERROR] $(YELLOW2)Norminette.$(NC)
-endif
+# NORM	 = $(shell norminette | grep -c 'Error!')
+# ifeq ($(NORM), 0)
+# 	NORM_RET = $(GREEN)[DONE] $(YELLOW2)Norminette.$(NC)
+# else
+# 	NORM_RET = $(RED)[ERROR] $(YELLOW2)Norminette.$(NC)
+# endif
 
 # Pattern rule for object files
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(REMAKE)
@@ -65,13 +65,13 @@ all : libft_make start_message $(NAME)
 start_message:
 	@if [ ! -f $(NAME) ] || [ `for file in $(SRCS); do find $(SRC_DIR)$$file -newer $(NAME); done` ] || [ $(LIBFT) -nt $(NAME) ]; then \
 		echo "$(YELLOW)Starting $(YELLOW2)$(NAME)$(YELLOW) compilation...\n$(NC)";                                                     \
-		echo "\n$(NORM_RET)\n";                                                     \
 	else                                                                                                                               \
-		echo "$(YELLOW)Nothing to be done for $(YELLOW2)$(NAME)$(NC)";                                                                           \
+		echo "$(YELLOW)Nothing to be done for $(YELLOW2)$(NAME)$(NC)";                                                                 \
 	fi
 
 end_message:
 	@echo "$(YELLOW)\nCompilation of $(YELLOW2)$(NAME)$(YELLOW) finished successfully!$(NC)";
+	@echo "\n$(NORM_RET)";
 
 $(NAME) : ${LIBFT} $(OBJ)
 	@echo "$(GREEN)[Compiling program] $(NC)$(NAME)"

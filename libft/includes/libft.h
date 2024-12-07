@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:01:53 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/11/28 18:34:43 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/07 17:01:41 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -325,6 +325,32 @@ char	*ft_strdup(const char *str);
  *         memory allocation fails.
  */
 char	*ft_strjoin(char const *s1, char const *s2);
+
+/**
+ * @brief Count the amount of "words" in a string.
+ * 
+ * The function count the amount of words in a string. A word is defined by a
+ * list of character delimited by the char `c`. In the common sense, `c` is a
+ * space.
+ * 
+ * @param str The string to count the words from
+ * @param c The words separator
+ * 
+ * @return The amount of word in the string.
+ */
+size_t	ft_count_words(char const *str, char c);
+
+/**
+ * @brief Free a list of strings.
+ * 
+ * This fonction free each string of a list, and finnaly free the list
+ * 
+ * @param tab The string to free
+ * @param i the amount of string in the list
+ * 
+ * @return The amount of word in the string.
+ */
+void	ft_free_tab(char **tab, size_t i);
 
 /**
  * @brief Splits a string into an array of substrings using a delimiter.

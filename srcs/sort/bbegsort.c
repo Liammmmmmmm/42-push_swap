@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:56:20 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/07 13:09:24 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/07 14:38:56 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	push_b_start(int *stack_a, int *stack_b, int *stack_s)
 
 int	push_a_limit(int *stack_a, int *stack_b, int *stack_s, int limit)
 {
+	// faire exactement comme push b start mais on 
 	(void)*stack_a;
 	(void)*stack_b;
 	(void)*stack_s;
