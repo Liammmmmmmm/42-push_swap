@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:21:24 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/06 13:45:53 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/08 12:49:24 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int		init_stacks(int **stack_a, int **stack_b, int argc, char **argv);
 void	clear_stacks(int *stack_a, int *stack_b);
 void	replace_nb_by_index(int *stack_a, int *stack_sorted, int stack_len);
+void	reinit_stack_a(int *stack_a, int *stack_b, int argc, char **argv);
 
 /**
  * @brief Swap the first two elements of stack a.

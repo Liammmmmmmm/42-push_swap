@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:18:11 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/07 16:15:50 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/08 15:38:28 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,7 @@ void	sort(int *stack_a, int *stack_b, int *stack_sorted)
 		return (sort_four_a(stack_a));
 	if (len == 5)
 		return (sort_five_ony(stack_a, stack_b));
-	bbeg_sort(stack_a, stack_b, stack_sorted);
+	if (len < 110)
+		return (mysort_little(stack_a, stack_b, stack_sorted));
+	radix_sort_base(stack_a, stack_b, stack_sorted, 2);
 }

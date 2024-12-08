@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:56:20 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/07 14:38:56 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/08 13:59:34 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,13 @@ int	push_b_start(int *stack_a, int *stack_b, int *stack_s)
 		}
 	}
 	return (res);
+}
+
+void	eight_or_less_b(int *stack_a, int *stack_b, int limit)
+{
+	if (limit == 1)
+		return (pa(stack_a, stack_b, 1));
+	
 }
 
 int	push_a_limit(int *stack_a, int *stack_b, int *stack_s, int limit)

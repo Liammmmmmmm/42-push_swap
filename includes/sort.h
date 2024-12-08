@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:42:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/07 13:00:50 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/08 13:52:27 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int		max(int *stack, int len);
 
 void	sort(int *stack_a, int *stack_b, int *stack_sorted);
 void	mysort(int *stack_a, int *stack_b, int *stack_sorted);
+void	mysort_little(int *stack_a, int *stack_b, int *stack_sorted);
 void	radix_sort_base(int *stack_a, int *stack_b, int *stack_sorted, int b);
 void	bbeg_sort(int *stack_a, int *stack_b, int *stack_sorted);
 void	bubble_sort(int	*stack_a);
 
 int		first_sort(int **stack_sorted, int *stack_a, int *stack_b, int len);
-void	reinit_stack_a(int *stack_a, int argc, char **argv);
 int		find_quickest_b(int *stack_b, int actual_index, int number);
 int		find_quickest_inferior_a(int *stack_a, int number);
 int		find_quickest_supperior_b(int *stack_b, int number);
@@ -40,5 +40,11 @@ void	sort_three_b(int *stack_b);
 void	sort_four_b(int *stack_b);
 
 void	move_to_b(int *stack_a, int *stack_b, int limit);
+
+/*    MY SORT     */
+void	i_to_b_first(int *stack_a, int *stack_b, int *stack_sorted, int parts);
+void	i_to_b(int *stack_a, int *stack_b, int *stack_sorted, int parts);
+void	i_to_a(int *stack_a, int *stack_b, int *stack_sorted, int parts);
+void	full_insert_sort(int *stack_a, int *stack_b, int *stack_sorted);
 
 #endif

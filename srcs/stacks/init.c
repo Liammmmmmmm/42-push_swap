@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:48:12 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/07 17:50:00 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/08 12:48:20 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,40 @@ int	init_stacks(int **stack_a, int **stack_b, int argc, char **argv)
 	return (1);
 }
 
-void	reinit_stack_a(int *stack_a, int argc, char **argv)
+void	reinit_split(int *stack_a, int *stack_b, char **argv)
+{
+	int		word_count;
+	int		i;
+	char	**splited;
+
+	word_count = ft_count_words(argv[1], ' ');
+	splited = ft_split(argv[1], ' ');
+	if (!splited)
+		return (clear_stacks(stack_a, stack_b));
+	i = 0;
+	while (i < word_count)
+	{
+		stack_a[i] = ft_atoi(splited[i]);
+		i++;
+	}
+	ft_free_tab(splited, word_count);
+	len_a(word_count);
+}
+
+void	reinit_stack_a(int *stack_a, int *stack_b, int argc, char **argv)
 {
 	int	i;
 
 	i = 0;
+	pos_a(0);
+	if (argc == 2)
+		return (reinit_split(stack_a, stack_b, argv));
 	while (i < argc - 1)
 	{
 		stack_a[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
 	len_a(i);
-	pos_a(0);
 }
 
 void	clear_stacks(int *stack_a, int *stack_b)

@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:40:43 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/07 13:40:00 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/08 13:37:19 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	i_to_b(int *stack_a, int *stack_b, int *stack_sorted, int parts)
 
 	part = 1;
 	i_len = len_a(-1);
-	if (parts == 0)
-		parts = 1;
+	if (parts <= 1)
+		parts = 2;
 	while (part < parts)
 	{
 		total_len = len_a(-1);
@@ -52,8 +52,13 @@ void	i_to_b(int *stack_a, int *stack_b, int *stack_sorted, int parts)
 		}
 		part++;
 	}
-	while (len_a(-1) > 0)
-		pb(stack_a, stack_b, 1);
+	while (len_a(-1) > 1)
+	{
+		if (get_number_a(stack_a, 0) == stack_sorted[i_len])
+			ra(1);
+		else
+			pb(stack_a, stack_b, 1);
+	}
 }
 
 void	i_to_a(int *stack_a, int *stack_b, int *stack_sorted, int parts)
