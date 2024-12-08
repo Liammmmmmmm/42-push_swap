@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:42:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/08 13:52:27 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/08 17:20:50 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,9 @@ void	i_to_b_first(int *stack_a, int *stack_b, int *stack_sorted, int parts);
 void	i_to_b(int *stack_a, int *stack_b, int *stack_sorted, int parts);
 void	i_to_a(int *stack_a, int *stack_b, int *stack_sorted, int parts);
 void	full_insert_sort(int *stack_a, int *stack_b, int *stack_sorted);
+
+/*    BOTBEG     */
+void	parallel_bubble_limit(int *stack_a, int *stack_b, int limit);
+void	parallel_bubble_limit_odd(int *stack_a, int *stack_b, int limit);
 
 #endif

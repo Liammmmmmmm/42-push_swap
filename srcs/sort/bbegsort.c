@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:56:20 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/08 13:59:34 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/08 17:32:38 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,57 +39,9 @@ void	select_good_sort_a(int *stack_a, int to_sort)
 		bubble_sort(stack_a);
 }
 
-int	push_b_start(int *stack_a, int *stack_b, int *stack_s)
-{
-	int	i;
-	int	len;
-	int	divider;
-	int	initial_len;
-	int	res;
 
-	initial_len = len_a(-1);
-	while (len_a(-1) > 4)
-	{
-		i = -1;
-		len = len_a(-1);
-		divider = len / 2;
-		res = 0;
-		while (++i < len)
-		{
-			if (get_number_a(stack_a, 0) < stack_s[initial_len - divider])
-			{
-				pb(stack_a, stack_b, 1);
-				res++;
-			}
-			else
-				ra(1);
-		}
-	}
-	return (res);
-}
-
-void	eight_or_less_b(int *stack_a, int *stack_b, int limit)
-{
-	if (limit == 1)
-		return (pa(stack_a, stack_b, 1));
-	
-}
-
-int	push_a_limit(int *stack_a, int *stack_b, int *stack_s, int limit)
-{
-	// faire exactement comme push b start mais on 
-	(void)*stack_a;
-	(void)*stack_b;
-	(void)*stack_s;
-	(void)limit;
-	return (0);
-}
 
 void	bbeg_sort(int *stack_a, int *stack_b, int *stack_sorted)
 {
-	int	to_sort;
-
-	to_sort = push_b_start(stack_a, stack_b, stack_sorted);
-	select_good_sort_a(stack_a, to_sort);
-	select_good_sort_b(stack_a, stack_b, to_sort);
+	
 }

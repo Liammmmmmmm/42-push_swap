@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:16:20 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/08 13:12:38 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/08 17:12:43 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ INCLUDES = -I includes/ -I $(LIBFTDIR)includes/
 SRC_DIR  = srcs/
 SRCS     = push_swap.c args.c maths.c  \
            stacks/circular_buffer.c stacks/init.c stacks/instr_p.c stacks/instr_r.c stacks/instr_rr.c stacks/instr_s.c stacks/conditions.c stacks/get_number.c stacks/index.c \
-		   sort/first_sort.c sort/utils.c sort/sort.c sort/controls.c sort/radix.c sort/mysort.c sort/mysort_little.c sort/mysort_utils.c sort/bubble.c sort/bbegsort.c sort/basics_a.c sort/basics_b.c
+		   sort/first_sort.c sort/utils.c sort/sort.c sort/controls.c sort/radix.c sort/mysort.c sort/mysort_little.c sort/mysort_utils.c sort/bubble.c sort/bbegsort.c sort/bbeg_bubble.c sort/basics_a.c sort/basics_b.c
 
 # Object files directory
 OBJ_DIR  = .obj/
