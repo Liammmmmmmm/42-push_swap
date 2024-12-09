@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 17:12:23 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/08 17:27:00 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/09 14:09:54 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	chose_better_swap(int *stack_a, int *stack_b)
 {
-	if (get_number_a(stack_a, 0) > get_number_a(stack_a, 1)
+	if (len_b(-1) > 1 && get_number_a(stack_a, 0) > get_number_a(stack_a, 1)
 		&& get_number_b(stack_b, 0) < get_number_b(stack_b, 1))
 		ss(stack_a, stack_b, 1);
 	else if (get_number_a(stack_a, 0) > get_number_a(stack_a, 1))
 		sa(stack_a, 1);
-	else if (get_number_b(stack_b, 0) < get_number_b(stack_b, 1))
+	else if (len_b(-1) > 1 && get_number_b(stack_b, 0) < get_number_b(stack_b, 1))
 		sb(stack_b, 1);
 }
 

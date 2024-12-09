@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:56:13 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/06 13:50:54 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/09 14:07:29 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	len_a(int init)
 
 int	len_b(int init)
 {
-	static int	lenb;
+	static int	lenb = 0;
 
 	if (init >= 0)
 		lenb = init;

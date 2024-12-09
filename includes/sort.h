@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:42:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/08 17:20:50 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/08 18:25:29 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,12 @@ void	full_insert_sort(int *stack_a, int *stack_b, int *stack_sorted);
 /*    BOTBEG     */
 void	parallel_bubble_limit(int *stack_a, int *stack_b, int limit);
 void	parallel_bubble_limit_odd(int *stack_a, int *stack_b, int limit);
+
+typedef struct s_bbeg
+{
+	int		size;
+	int		min;
+	char	stack;
+}			t_bbeg;
 
 #endif
