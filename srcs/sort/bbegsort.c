@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:56:20 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/09 14:21:39 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/09 15:50:12 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,15 +153,16 @@ void	sort_from_b(t_list **first, t_list *elem, int *stack_a, int *stack_b) // y'
 	ft_lstdelmiddle(first, elem);
 }
 
-void	go_back_if(int direction, int rotations)
+void	go_back_if(int *direction, int rotations)
 {
-	if (direction == 0)
+	if (*direction == 0)
 	{
 		while (rotations > 0)
 		{
 			rra(1);
 			rotations--;
 		}
+		*direction = 1;
 	}
 }
 
@@ -172,21 +173,36 @@ void	push_to_b(int direction, t_bbeg *content, int *stack_a, int *stack_b)
 	i = 0;
 	while (i < content->size)
 	{
-		if (get_number_a(stack_a, 0) >= content->min && get_number_a(stack_a, 0) < content->min  + (content->size - (content->size / 2)))
-		{
-			pb(stack_a, stack_b, 1);
-			if (!direction)
+		if (!direction)
 				rra(1);
-		}
+		if (get_number_a(stack_a, 0) >= content->min && get_number_a(stack_a, 0) < content->min  + (content->size - (content->size / 2)))
+			pb(stack_a, stack_b, 1);
 		else
 		{
 			if (direction)
 				ra(1);
-			else
-				rra(1);
 		}
 		i++;
 	}
+}
+
+void	push_to_b_test(int direction, t_bbeg *content, int *stack_a, int *stack_b)
+{
+	int	i;
+
+	i = 0;
+	(void)direction;
+	while (i < content->size)
+	{
+		if (get_number_a(stack_a, 0) >= content->min && get_number_a(stack_a, 0) < content->min  + (content->size - (content->size / 2)))
+			pb(stack_a, stack_b, 1);
+		else
+			ra(1);
+		i++;
+	}
+	i = -1;
+	while (++i < content->size - content->size / 2)
+		rra(1);
 }
 
 void	push_to_a(t_bbeg *content, int *stack_a, int *stack_b)
@@ -196,7 +212,7 @@ void	push_to_a(t_bbeg *content, int *stack_a, int *stack_b)
 	i = 0;
 	while (i < content->size)
 	{
-		if (get_number_b(stack_a, 0) >= content->min && get_number_b(stack_a, 0) < content->min  + (content->size - (content->size / 2)))
+		if (get_number_b(stack_b, 0) >= content->min && get_number_b(stack_b, 0) < content->min  + (content->size - (content->size / 2)))
 			rb(1);
 		else
 			pa(stack_a, stack_b, 1);
@@ -240,11 +256,15 @@ void	split_from_a(t_list **first, int *stack_a, int *stack_b, int *stack_s) // o
 
 	element = search_for_a(first);
 	if (element == NULL)
+	{
 		return (split_from_b(first, stack_a, stack_b, stack_s));
+	}
 	content = element->content;
 	if (content->size <= 10)
-		return (go_back_if(direction, content->size),
+	{
+		return (go_back_if(&direction, content->size),
 			sort_from_a(first, element, stack_a, stack_b), split_from_b(first, stack_a, stack_b, stack_s));
+	}
 	if (add_node(first, 'a', content->size / 2, content->min + (content->size - (content->size / 2))) == 0)
 		return (cancel_everything(first, stack_a, stack_b, stack_s));
 	if (add_node(first, 'b', (content->size - (content->size / 2)), content->min) == 0)
