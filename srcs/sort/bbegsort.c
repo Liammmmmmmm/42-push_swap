@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:56:20 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/09 15:50:12 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/09 16:12:15 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void	push_x_nb_to_a(int *stack_a, int *stack_b, int limit)
 	}
 }
 
-void	sort_from_b(t_list **first, t_list *elem, int *stack_a, int *stack_b) // y'a une couille qq part y skip une valeur
+void	sort_from_b(t_list **first, t_list *elem, int *stack_a, int *stack_b)
 {
 	t_bbeg	*content;
 	int		i;
@@ -178,31 +178,10 @@ void	push_to_b(int direction, t_bbeg *content, int *stack_a, int *stack_b)
 		if (get_number_a(stack_a, 0) >= content->min && get_number_a(stack_a, 0) < content->min  + (content->size - (content->size / 2)))
 			pb(stack_a, stack_b, 1);
 		else
-		{
 			if (direction)
 				ra(1);
-		}
 		i++;
 	}
-}
-
-void	push_to_b_test(int direction, t_bbeg *content, int *stack_a, int *stack_b)
-{
-	int	i;
-
-	i = 0;
-	(void)direction;
-	while (i < content->size)
-	{
-		if (get_number_a(stack_a, 0) >= content->min && get_number_a(stack_a, 0) < content->min  + (content->size - (content->size / 2)))
-			pb(stack_a, stack_b, 1);
-		else
-			ra(1);
-		i++;
-	}
-	i = -1;
-	while (++i < content->size - content->size / 2)
-		rra(1);
 }
 
 void	push_to_a(t_bbeg *content, int *stack_a, int *stack_b)
@@ -248,7 +227,7 @@ void	split_from_b(t_list **first, int *stack_a, int *stack_b, int *stack_s)
 	split_from_a(first, stack_a, stack_b, stack_s);
 }
 
-void	split_from_a(t_list **first, int *stack_a, int *stack_b, int *stack_s) // opti en faisant une fonction specifique au depart car le retours prends plus de temps
+void	split_from_a(t_list **first, int *stack_a, int *stack_b, int *stack_s)
 {
 	static int	direction = 1;
 	t_list		*element;
@@ -256,9 +235,7 @@ void	split_from_a(t_list **first, int *stack_a, int *stack_b, int *stack_s) // o
 
 	element = search_for_a(first);
 	if (element == NULL)
-	{
 		return (split_from_b(first, stack_a, stack_b, stack_s));
-	}
 	content = element->content;
 	if (content->size <= 10)
 	{
@@ -278,6 +255,30 @@ void	split_from_a(t_list **first, int *stack_a, int *stack_b, int *stack_s) // o
 	split_from_a(first, stack_a, stack_b, stack_s);
 }
 
+void	split_from_a_first(t_list **first, int *stack_a, int *stack_b, int *stack_s)
+{
+	t_list		*element;
+	t_bbeg		*content;
+
+	element = search_for_a(first);
+	if (element == NULL)
+		return (split_from_b(first, stack_a, stack_b, stack_s));
+	content = element->content;
+	if (content->size <= 10)
+	{
+		return (sort_from_a(first, element, stack_a, stack_b),
+			split_from_b(first, stack_a, stack_b, stack_s));
+	}
+	if (add_node(first, 'a', content->size / 2, content->min + (content->size - (content->size / 2))) == 0)
+		return (cancel_everything(first, stack_a, stack_b, stack_s));
+	if (add_node(first, 'b', (content->size - (content->size / 2)), content->min) == 0)
+		return (cancel_everything(first, stack_a, stack_b, stack_s));
+	push_to_b(1, content, stack_a, stack_b);
+	ft_lstdelmiddle(first, element);
+	split_from_a_first(first, stack_a, stack_b, stack_s);
+}
+
+
 void	bbeg_sort(int *stack_a, int *stack_b, int *stack_sorted)
 {
 	t_list	*first;
@@ -285,5 +286,5 @@ void	bbeg_sort(int *stack_a, int *stack_b, int *stack_sorted)
 	first = NULL;
 	if (add_node(&first, 'a', len_a(-1), 0) == 0)
 		return (cancel_everything(&first, stack_a, stack_b, stack_sorted));
-	split_from_a(&first, stack_a, stack_b, stack_sorted);
+	split_from_a_first(&first, stack_a, stack_b, stack_sorted);
 }
