@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:56:20 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/09 16:12:15 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/09 16:43:17 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,20 +87,29 @@ void	sort_from_a(t_list **first, t_list *elem, int *stack_a, int *stack_b)
 {
 	t_bbeg	*content;
 	int		i;
+	int		y;
+	int		x;
 
+	y = 0;
+	x = 0;
 	content = elem->content;
 	if (content->size <= 4)
 		return (select_good_sort_a(stack_a, content->size), ft_lstdelmiddle(first, elem));
 	i = -1;
-	while (++i < content->size) // petite opti possible ici en s'arretant si y'en a pas d'autres a push
+	while (++i < content->size && x < content->size - content->size / 2)
 	{
 		if (get_number_a(stack_a, 0) >= content->min && get_number_a(stack_a, 0) < content->min  + (content->size - (content->size / 2)))
+		{
+			x++;
 			pb(stack_a, stack_b, 1);
+		}
 		else
+		{
+			y++;
 			ra(1);
+		}
 	}
-	i = -1;
-	while (++i < content->size / 2)
+	while (y-- > 0)
 		rra(1);
 	if (content->size % 2 == 0)
 		parallel_bubble_limit(stack_a, stack_b, content->size / 2);
@@ -124,24 +133,37 @@ void	push_x_nb_to_a(int *stack_a, int *stack_b, int limit)
 	}
 }
 
+
+
 void	sort_from_b(t_list **first, t_list *elem, int *stack_a, int *stack_b)
 {
 	t_bbeg	*content;
 	int		i;
+	int		y;
+	int		x;
 
+	y = 0;
+	x = 0;
 	content = elem->content;
 	if (content->size <= 4)
-		return (select_good_sort_b(stack_a, stack_b, content->size), push_x_nb_to_a(stack_a, stack_b, content->size), ft_lstdelmiddle(first, elem));
+		return (select_good_sort_b(stack_a, stack_b, content->size),
+			push_x_nb_to_a(stack_a, stack_b, content->size),
+			ft_lstdelmiddle(first, elem));
 	i = -1;
-	while (++i < content->size) // petite opti possible ici en s'arretant si y'en a pas d'autres a push
+	while (++i < content->size && x < content->size - content->size / 2)
 	{
 		if (get_number_b(stack_b, 0) >= content->min && get_number_b(stack_b, 0) < content->min  + (content->size - (content->size / 2)))
+		{
+			y++;
 			rb(1);
+		}
 		else
-			pa(stack_a, stack_b, 1);
+		{
+			x++;
+			pa(stack_a, stack_b, 1);	
+		}
 	}
-	i = -1;
-	while (++i < content->size - content->size / 2)
+	while (y-- > 0)
 		rrb(1);
 	if (content->size % 2 == 0)
 		parallel_bubble_limit(stack_a, stack_b, content->size / 2);
