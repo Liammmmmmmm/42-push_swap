@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:56:20 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/09 14:10:49 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/09 14:21:39 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,7 +196,7 @@ void	push_to_a(t_bbeg *content, int *stack_a, int *stack_b)
 	i = 0;
 	while (i < content->size)
 	{
-		if (get_number_a(stack_a, 0) >= content->min && get_number_a(stack_a, 0) < content->min  + (content->size - (content->size / 2)))
+		if (get_number_b(stack_a, 0) >= content->min && get_number_b(stack_a, 0) < content->min  + (content->size - (content->size / 2)))
 			rb(1);
 		else
 			pa(stack_a, stack_b, 1);
