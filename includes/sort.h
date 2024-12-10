@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:42:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 13:58:15 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 14:21:44 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	sort_four_a(int *stack_a);
 void	sort_two_b(int *stack_b);
 void	sort_three_b(int *stack_b);
 void	sort_four_b(int *stack_b);
+
+int		is_sorted(int *stack_a);
 
 /* ******************************** MYSORT ********************************* */
 

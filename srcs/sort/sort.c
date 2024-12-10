@@ -6,25 +6,11 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:18:11 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 11:59:49 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 14:55:05 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_sorted(int *stack_a)
-{
-	int	i;
-
-	i = 0;
-	while (i < len_a(-1) - 1)
-	{
-		if (get_number_a(stack_a, i) > get_number_a(stack_a, i + 1))
-			return (0);
-		i++;
-	}
-	return (1);
-}
 
 void	sort_three_only(int *stack_a)
 {

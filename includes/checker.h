@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 12:49:02 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 12:49:37 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 14:02:37 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define CHECKER_H
 
 # include "push_swap.h"
+
+typedef enum e_checker {
+	ERROR_UNKNOWN,
+	OK,
+	KO
+} t_checker;
 
 void	print_error(void);
 int		check_args(int argc, char **argv);

@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:20:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 13:39:30 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 14:06:40 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "sort.h"
 
 typedef enum e_actions {
-	ERROR_UNKNOWN,
+	UNKNOWN,
 	SA,
 	SB,
 	SS,
