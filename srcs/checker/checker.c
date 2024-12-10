@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 18:07:48 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 15:11:06 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 17:18:25 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_checker	execute_instructions(int *stack_a, int *stack_b)
 {
 	char		*line;
 	t_actions	action;
-	
+
 	line = get_next_line(0);
 	while (line)
 	{
@@ -88,12 +88,14 @@ t_checker	execute_instructions(int *stack_a, int *stack_b)
 
 int	main(int argc, char **argv)
 {
-	int	*stack_a;
-	int	*stack_b;
-	t_checker checker_result;
+	int			*stack_a;
+	int			*stack_b;
+	t_checker	checker_result;
 
 	stack_a = NULL;
 	stack_b = NULL;
+	if (argc < 2)
+		return (0);
 	if (check_args(argc, argv) == 0)
 		return (print_error(), 1);
 	if (init_stacks(&stack_a, &stack_b, argc, argv) == 0)

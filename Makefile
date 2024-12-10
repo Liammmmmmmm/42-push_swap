@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:16:20 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/10 16:39:34 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/10 16:44:39 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,7 +86,7 @@ end_message:
 
 $(NAME) : ${LIBFT} $(OBJ)
 	@echo "$(GREEN)[Compiling program] $(NC)$(NAME)"
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFTDIR)libft.a
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFTDIR)libft.a
 	@make --no-print-directory end_message
 
 libft_make:

@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:42:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 14:21:44 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 16:50:00 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,10 @@ int		add_node(t_list **first, char stack, int size, int min);
  */
 t_list	*search_for_a(t_list **first);
 
-int	is_alone_in_b(t_list **first);
+/**
+ * Verify if there is only one stack in b
+ */
+int		is_alone_in_b(t_list **first);
 
 /**
  * Call this function only if you have 5 or less number to sort in stack b.

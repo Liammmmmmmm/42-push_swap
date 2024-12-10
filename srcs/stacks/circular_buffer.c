@@ -6,9 +6,11 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:56:13 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 14:32:22 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 17:14:12 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 int	pos_a(int init)
 {
@@ -44,4 +46,10 @@ int	len_b(int init)
 	if (init >= 0)
 		lenb = init;
 	return (lenb);
+}
+
+void	clear_stacks(int *stack_a, int *stack_b)
+{
+	free(stack_a);
+	free(stack_b);
 }

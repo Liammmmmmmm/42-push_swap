@@ -6,11 +6,25 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:48:12 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/08 12:48:20 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 17:02:06 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_args_splited(int word_count, char **splited)
+{
+	int	i;
+
+	i = 0;
+	while (i < word_count)
+	{
+		if (check_arg(splited[i]) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	init_split(int **stack_a, int **stack_b, char **argv)
 {
@@ -28,12 +42,12 @@ int	init_split(int **stack_a, int **stack_b, char **argv)
 	splited = ft_split(argv[1], ' ');
 	if (!splited)
 		return (clear_stacks(*stack_a, *stack_b), 0);
-	i = 0;
-	while (i < word_count)
-	{
+	if (check_args_splited(word_count, splited) == 0)
+		return (ft_free_tab(splited, word_count),
+			clear_stacks(*stack_a, *stack_b), 0);
+	i = -1;
+	while (++i < word_count)
 		(*stack_a)[i] = ft_atoi(splited[i]);
-		i++;
-	}
 	ft_free_tab(splited, word_count);
 	len_a(word_count);
 	return (1);
@@ -95,10 +109,4 @@ void	reinit_stack_a(int *stack_a, int *stack_b, int argc, char **argv)
 		i++;
 	}
 	len_a(i);
-}
-
-void	clear_stacks(int *stack_a, int *stack_b)
-{
-	free(stack_a);
-	free(stack_b);
 }
