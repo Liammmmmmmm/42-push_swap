@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:40:43 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 12:30:33 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 13:58:03 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	i_to_a(int *stack_a, int *stack_b, int *stack_sorted, int parts)
 		pa(stack_a, stack_b, 1);
 }
 
-void	full_insert_sort(int *stack_a, int *stack_b, int *stack_sorted)
+void	full_insert_sort(int *stack_a, int *stack_b)
 {
 	int	i;
 	int	quickest;
@@ -101,7 +101,7 @@ void	full_insert_sort(int *stack_a, int *stack_b, int *stack_sorted)
 	i = len_b(-1) - 1;
 	while (i >= 0)
 	{
-		quickest = find_quickest_b(stack_b, 0, stack_sorted[i]);
+		quickest = find_quickest_b(stack_b, 0, i);
 		if (quickest == RB)
 			rotate_and_push(&i, stack_a, stack_b, rb);
 		else if (quickest == RRB)
@@ -118,7 +118,7 @@ void	mysort(int *stack_a, int *stack_b, int *stack_sorted)
 	i_to_b_first(stack_a, stack_b, stack_sorted, parts / 4);
 	i_to_a(stack_a, stack_b, stack_sorted, parts / 1.2);
 	i_to_b(stack_a, stack_b, stack_sorted, parts * 3);
-	full_insert_sort(stack_a, stack_b, stack_sorted);
+	full_insert_sort(stack_a, stack_b);
 	sort_two_a(stack_a);
 	while (len_b(-1))
 		pa(stack_a, stack_b, 1);

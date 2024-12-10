@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mysort_little.c                                    :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/08 12:55:17 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 13:58:22 by lilefebv         ###   ########lyon.fr   */
+/*   Created: 2024/12/10 12:49:02 by lilefebv          #+#    #+#             */
+/*   Updated: 2024/12/10 12:49:37 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-void	mysort_little(int *stack_a, int *stack_b, int *stack_sorted)
-{
-	int	parts;
+# include "push_swap.h"
 
-	parts = root(len_a(-1)) / 2;
-	i_to_b_first(stack_a, stack_b, stack_sorted, parts);
-	select_good_sort_a(stack_a, len_a(-1));
-	full_insert_sort(stack_a, stack_b);
-	sort_two_a(stack_a);
-	while (len_b(-1) > 0)
-		pa(stack_a, stack_b, 1);
-	sort_two_a(stack_a);
-}
+void	print_error(void);
+int		check_args(int argc, char **argv);
+int		check_duplicates(int *tab, int len);
+
+int		root(int n);
+int		power(int nb, int exponent);
+
+#endif

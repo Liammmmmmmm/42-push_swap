@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:20:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/06 15:03:03 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 13:39:30 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,20 @@
 # include "stacks.h"
 # include "sort.h"
 
-# define SA 1
-# define SB 2
-# define SS 3
-# define PA 4
-# define PB 5
-# define RA 6
-# define RB 7
-# define RR 8
-# define RRA 9
-# define RRB 10
-# define RRR 11
+typedef enum e_actions {
+	ERROR_UNKNOWN,
+	SA,
+	SB,
+	SS,
+	PA,
+	PB,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR
+} t_actions;
 
 void	print_error(void);
 int		check_args(int argc, char **argv);

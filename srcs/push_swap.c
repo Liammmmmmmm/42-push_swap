@@ -6,33 +6,11 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:21:35 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/08 15:51:51 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 12:43:40 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	printstack(int *stack, int pos, int len)
-{
-	int	i;
-
-	i = pos;
-	ft_putstr_fd("START\n", 1);
-	while (i < len)
-	{
-		ft_putnbr_fd(stack[i], 1);
-		ft_putstr_fd("\n", 1);
-		i++;
-	}
-	i = 0;
-	while (i < pos)
-	{
-		ft_putnbr_fd(stack[i], 1);
-		ft_putstr_fd("\n", 1);
-		i++;
-	}
-	ft_putstr_fd("END\n", 1);
-}
 
 int	main(int argc, char **argv)
 {
