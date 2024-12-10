@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:16:20 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/10 14:55:42 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/10 15:33:00 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,12 +53,12 @@ REMAKE   = libft/includes/libft.h libft/includes/ft_printf.h libft/includes/get_
 
 # NORMINETTE
 NORM_RET = Norminette ERROR
-# NORM	 = $(shell norminette | grep -c 'Error!')
-# ifeq ($(NORM), 0)
-# 	NORM_RET = $(GREEN)[DONE] $(YELLOW2)Norminette.$(NC)
-# else
-# 	NORM_RET = $(RED)[ERROR] $(YELLOW2)Norminette.$(NC)
-# endif
+NORM	 = $(shell norminette | grep -c 'Error!')
+ifeq ($(NORM), 0)
+	NORM_RET = $(GREEN)[DONE] $(YELLOW2)Norminette.$(NC)
+else
+	NORM_RET = $(RED)[ERROR] $(YELLOW2)Norminette.$(NC)
+endif
 
 # Pattern rule for object files
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(REMAKE)
@@ -94,8 +94,14 @@ clean :
 
 fclean : clean
 	@make --no-print-directory -C $(LIBFTDIR) fclean
-	@echo "$(RED)[Removing] $(NC)program $(NAME)"
-	@rm -f $(NAME)
+	@if [ -f $(NAME) ]; then \
+		echo "$(RED)[Removing] $(NC)program $(NAME)"; \
+		rm -f $(NAME); \
+	fi
+	@if [ -f $(BONUS) ]; then \
+		echo "$(RED)[Removing] $(NC)program $(BONUS)"; \
+		rm -f $(BONUS); \
+    fi
 
 re : fclean all
 
