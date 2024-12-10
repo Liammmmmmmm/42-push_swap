@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 14:56:20 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/09 17:09:16 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 12:11:32 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	split_from_b(t_list **first, int *stack_a, int *stack_b, int *stack_s)
 		sort_from_b(first, element, stack_a, stack_b);
 		return (split_from_a(first, stack_a, stack_b, stack_s));
 	}
+	push_to_a(content, stack_a, stack_b, is_alone_in_b(first));
 	if (add_node(first, 'a', content->size / 2,
 			content->min + (content->size - (content->size / 2))) == 0)
 		return (cancel_everything(first, stack_a, stack_b, stack_s));
 	if (add_node(first, 'b',
 			(content->size - (content->size / 2)), content->min) == 0)
 		return (cancel_everything(first, stack_a, stack_b, stack_s));
-	push_to_a(content, stack_a, stack_b);
 	ft_lstdelmiddle(first, element);
 	split_from_a(first, stack_a, stack_b, stack_s);
 }

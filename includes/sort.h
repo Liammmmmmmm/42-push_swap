@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:42:08 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/09 17:54:20 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 12:07:06 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ void	sort_two_b(int *stack_b);
 void	sort_three_b(int *stack_b);
 void	sort_four_b(int *stack_b);
 
-void	move_to_b(int *stack_a, int *stack_b, int limit);
-
 /* ******************************** MYSORT ********************************* */
 
 void	i_to_b_first(int *stack_a, int *stack_b, int *stack_sorted, int parts);
 void	i_to_b(int *stack_a, int *stack_b, int *stack_sorted, int parts);
 void	i_to_a(int *stack_a, int *stack_b, int *stack_sorted, int parts);
+void	move_to_b(int *stack_a, int *stack_b, int limit);
+void	move_to_b_bounded(int *stack_a, int *stack_b, int min, int max);
 void	full_insert_sort(int *stack_a, int *stack_b, int *stack_sorted);
 
 /* ********************************* BBEG ********************************** */
@@ -105,6 +105,8 @@ int		add_node(t_list **first, char stack, int size, int min);
  * @return The element found or NULL if nothing have been found.
  */
 t_list	*search_for_a(t_list **first);
+
+int	is_alone_in_b(t_list **first);
 
 /**
  * Call this function only if you have 5 or less number to sort in stack b.
@@ -175,6 +177,6 @@ void	push_to_b(int direction, t_bbeg *content, int *stack_a, int *stack_b);
 /**
  * Push numbers of stack_b in the stack_a.
  */
-void	push_to_a(t_bbeg *content, int *stack_a, int *stack_b);
+void	push_to_a(t_bbeg *content, int *stack_a, int *stack_b, int alone);
 
 #endif

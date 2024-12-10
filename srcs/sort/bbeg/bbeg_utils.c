@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:09:21 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/09 17:09:38 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 12:08:05 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	push_to_b(int direction, t_bbeg *content, int *stack_a, int *stack_b)
 	}
 }
 
-void	push_to_a(t_bbeg *content, int *stack_a, int *stack_b)
+void	push_to_a(t_bbeg *content, int *stack_a, int *stack_b, int alone)
 {
 	int	i;
 
@@ -61,6 +61,7 @@ void	push_to_a(t_bbeg *content, int *stack_a, int *stack_b)
 		i++;
 	}
 	i = -1;
-	while (++i < content->size - content->size / 2)
-		rrb(1);
+	if (!alone)
+		while (++i < content->size - content->size / 2)
+			rrb(1);
 }

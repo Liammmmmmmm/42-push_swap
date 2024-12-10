@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:00:56 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/09 17:03:35 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 12:06:18 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,26 @@ t_list	*search_for_a(t_list **first)
 		actual = actual->next;
 	}
 	return (NULL);
+}
+
+int	is_alone_in_b(t_list **first)
+{
+	int		count;
+	t_bbeg	*temp;
+	t_list	*actual;
+
+	if (!*first)
+		return (0);
+	actual = *first;
+	count = 0;
+	while (actual != NULL)
+	{
+		temp = actual->content;
+		if (temp->stack == 'b')
+			count++;
+		actual = actual->next;
+	}
+	if (count == 1)
+		return (1);
+	return (0);
 }

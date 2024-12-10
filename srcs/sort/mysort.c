@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:40:43 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/08 15:41:15 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 11:29:29 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,17 @@ void	i_to_b_first(int *stack_a, int *stack_b, int *stack_sorted, int parts)
 	if (parts == 0)
 		parts = 1;
 	while (++part < parts)
-		move_to_b(stack_a, stack_b,
-			stack_sorted[part * (i_len / parts)]);
+	{
+		if (part + 1 < parts)
+		{
+			move_to_b_bounded(stack_a, stack_b,
+				stack_sorted[part * (i_len / parts)],
+				stack_sorted[(part + 1) * (i_len / parts)]);
+			part++;
+		}
+		else
+			move_to_b(stack_a, stack_b, stack_sorted[part * (i_len / parts)]);
+	}
 	move_to_b(stack_a, stack_b,
 		stack_sorted[part * (i_len / parts) - (i_len / parts) / 4]);
 }
@@ -95,15 +104,41 @@ void	full_insert_sort(int *stack_a, int *stack_b, int *stack_sorted)
 		quickest = find_quickest_b(stack_b, 0, stack_sorted[i]);
 		if (quickest == RB)
 		{
-			while (stack_b[pos_b(-1)] != stack_sorted[i])
-				rb(1);
-			pa(stack_a, stack_b, 1);
+			if (i - 1 >= 0)
+			{
+				while (stack_b[pos_b(-1)] != stack_sorted[i] && stack_b[pos_b(-1)] != stack_sorted[i - 1])
+					rb(1);
+				pa(stack_a, stack_b, 1);
+			}
+			if (i - 1 < 0)
+				pa(stack_a, stack_b, 1);
+			else if (get_number_a(stack_a, 0) == stack_sorted[i - 1])
+			{
+				while (stack_b[pos_b(-1)] != stack_sorted[i])
+					rb(1);
+				pa(stack_a, stack_b, 1);
+				sa(stack_a, 1);
+				i--;
+			}
 		}
 		else if (quickest == RRB)
 		{
-			while (stack_b[pos_b(-1)] != stack_sorted[i])
-				rrb(1);
-			pa(stack_a, stack_b, 1);
+			if (i - 1 >= 0)
+			{
+				while (stack_b[pos_b(-1)] != stack_sorted[i] && stack_b[pos_b(-1)] != stack_sorted[i - 1])
+					rrb(1);
+				pa(stack_a, stack_b, 1);
+			}
+			if (i - 1 < 0)
+				pa(stack_a, stack_b, 1);
+			else if (get_number_a(stack_a, 0) == stack_sorted[i - 1])
+			{
+				while (stack_b[pos_b(-1)] != stack_sorted[i])
+					rrb(1);
+				pa(stack_a, stack_b, 1);
+				sa(stack_a, 1);
+				i--;
+			}
 		}
 		i--;
 	}
@@ -118,6 +153,8 @@ void	mysort(int *stack_a, int *stack_b, int *stack_sorted)
 	i_to_a(stack_a, stack_b, stack_sorted, parts / 1.2);
 	i_to_b(stack_a, stack_b, stack_sorted, parts * 3);
 	full_insert_sort(stack_a, stack_b, stack_sorted);
+	sort_two_a(stack_a);
 	while (len_b(-1))
 		pa(stack_a, stack_b, 1);
+	sort_two_a(stack_a);
 }
