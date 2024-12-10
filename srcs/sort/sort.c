@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:18:11 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 14:55:05 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 16:08:11 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,21 @@ void	sort_five_ony(int *stack_a, int *stack_b)
 		pa(stack_a, stack_b, 1);
 }
 
-/*
-Others algorithms :
-radix_sort_base(stack_a, stack_b, stack_sorted, 2);
-bubble_sort(stack_a);
-bbeg_sort(stack_a, stack_b, stack_sorted);
-*/
+void	sort_choose_algo(int *stack_a, int *stack_b, int *stack_sorted)
+{
+	if (ALGO == 1)
+		return (radix_sort_base(stack_a, stack_b, stack_sorted, 2));
+	else if (ALGO == 2)
+		return (mysort(stack_a, stack_b, stack_sorted));
+	else if (ALGO == 3)
+		return (mysort_little(stack_a, stack_b, stack_sorted));
+	else if (ALGO == 4)
+		return (bbeg_sort(stack_a, stack_b, stack_sorted));
+	else if (ALGO == 5)
+		return (bubble_sort(stack_a));
+	return (bbeg_sort(stack_a, stack_b, stack_sorted));
+}
+
 void	sort(int *stack_a, int *stack_b, int *stack_sorted)
 {
 	int	len;
@@ -79,17 +88,19 @@ void	sort(int *stack_a, int *stack_b, int *stack_sorted)
 	len = len_a(-1);
 	if (is_sorted(stack_a))
 		return ;
+	if (ALGO != 0)
+		return (sort_choose_algo(stack_a, stack_b, stack_sorted));
 	if (len == 2)
 		return (sort_two_a(stack_a));
-	if (len == 3)
+	else if (len == 3)
 		return (sort_three_only(stack_a));
-	if (len == 4)
+	else if (len == 4)
 		return (sort_four_a(stack_a));
-	if (len == 5)
+	else if (len == 5)
 		return (sort_five_ony(stack_a, stack_b));
-	if (len < 110)
+	else if (len < 110)
 		return (mysort_little(stack_a, stack_b, stack_sorted));
-	if (len < 400)
+	else if (len < 400)
 		return (mysort(stack_a, stack_b, stack_sorted));
 	bbeg_sort(stack_a, stack_b, stack_sorted);
 }

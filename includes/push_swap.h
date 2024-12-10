@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:20:36 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 14:06:40 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 16:00:06 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ typedef enum e_actions {
 	RRB,
 	RRR
 } t_actions;
+
+# ifndef ALGO
+#  define ALGO 0
+# endif
 
 void	print_error(void);
 int		check_args(int argc, char **argv);

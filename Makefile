@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:16:20 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/10 15:33:00 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/10 16:39:34 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ OBJ_BONUS = $(SRCS_BONUS:%.c=$(OBJ_DIR)%.o)
 # Remake all if modified
 REMAKE   = libft/includes/libft.h libft/includes/ft_printf.h libft/includes/get_next_line.h libft/Makefile  \
            Makefile includes/push_swap.h includes/stacks.h includes/sort.h
+ALGO_DEP = .algo_dep
 
 # NORMINETTE
 NORM_RET = Norminette ERROR
@@ -69,19 +70,23 @@ $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(REMAKE)
 all : libft_make start_message $(NAME)
 
 start_message:
-	@if [ ! -f $(NAME) ] || [ `for file in $(SRCS); do find $(SRC_DIR)$$file -newer $(NAME); done` ] || [ $(LIBFT) -nt $(NAME) ]; then \
+	@if [ ! -f $(NAME) ] || [ `for file in $(SRCS); do find $(SRC_DIR)$$file -newer $(NAME); done` ] || [ $(LIBFT) -nt $(NAME) ] || [ -f $(ALGO_DEP) ]; then \
 		echo "$(YELLOW)Starting $(YELLOW2)$(NAME)$(YELLOW) compilation...\n$(NC)";                                                     \
 	else                                                                                                                               \
 		echo "$(YELLOW)Nothing to be done for $(YELLOW2)$(NAME)$(NC)";                                                                 \
+	fi
+	@if [ -f $(ALGO_DEP) ]; then \
+		touch srcs/sort/sort.c; \
 	fi
 
 end_message:
 	@echo "$(YELLOW)\nCompilation of $(YELLOW2)$(NAME)$(YELLOW) finished successfully!$(NC)";
 	@echo "\n$(NORM_RET)";
+	@rm -f $(ALGO_DEP)
 
 $(NAME) : ${LIBFT} $(OBJ)
 	@echo "$(GREEN)[Compiling program] $(NC)$(NAME)"
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFTDIR)libft.a
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFTDIR)libft.a
 	@make --no-print-directory end_message
 
 libft_make:
@@ -92,18 +97,51 @@ clean :
 	@echo "$(RED)[Removing] $(NC)object files"
 	@rm -rf $(OBJ_DIR)
 
-fclean : clean
-	@make --no-print-directory -C $(LIBFTDIR) fclean
+rmprogram :
 	@if [ -f $(NAME) ]; then \
 		echo "$(RED)[Removing] $(NC)program $(NAME)"; \
 		rm -f $(NAME); \
 	fi
+
+fclean : clean rmprogram
+	@make --no-print-directory -C $(LIBFTDIR) fclean
 	@if [ -f $(BONUS) ]; then \
 		echo "$(RED)[Removing] $(NC)program $(BONUS)"; \
 		rm -f $(BONUS); \
     fi
 
 re : fclean all
+
+touchsort :
+	@touch srcs/sort/sort.c
+
+$(ALGO_DEP):
+	@touch $(ALGO_DEP)
+
+radix: CFLAGS += -D ALGO=1
+radix: touchsort $(NAME)
+	@touch $(ALGO_DEP)
+.PHONY: radix
+
+mysort: CFLAGS += -D ALGO=2
+mysort: touchsort $(NAME)
+	@touch $(ALGO_DEP)
+.PHONY: mysort
+
+mylittle: CFLAGS += -D ALGO=3
+mylittle: touchsort $(NAME)
+	@touch $(ALGO_DEP)
+.PHONY: mylittle
+
+bbeg: CFLAGS += -D ALGO=4
+bbeg: touchsort $(NAME)
+	@touch $(ALGO_DEP)
+.PHONY: bbeg
+
+bubble: CFLAGS += -D ALGO=5
+bubble: touchsort $(NAME)
+	@touch $(ALGO_DEP)
+.PHONY: bubble
 
 bonus : libft_make $(BONUS)
 
@@ -113,4 +151,4 @@ $(BONUS) : ${LIBFT} $(OBJ_BONUS)
 	@echo "$(YELLOW)\nCompilation of $(YELLOW2)$(BONUS)$(YELLOW) finished successfully!$(NC)";
 	@echo "\n$(NORM_RET)";
 
-.PHONY: all clean fclean re start_message end_message libft_make bonus
+.PHONY: all clean fclean re start_message end_message libft_make bonus rmprogram touchsort
