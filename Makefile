@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:16:20 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/10 16:44:39 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/10 17:33:06 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,11 +35,11 @@ INCLUDES = -I includes/ -I $(LIBFTDIR)includes/
 # Source files
 SRC_DIR  = srcs/
 SRCS     = push_swap.c args.c maths.c  \
-           stacks/circular_buffer.c stacks/init.c stacks/instr_p.c stacks/instr_r.c stacks/instr_rr.c stacks/instr_s.c stacks/conditions.c stacks/get_number.c stacks/index.c \
+           stacks/circular_buffer.c stacks/init.c stacks/instr_p.c stacks/instr_r.c stacks/instr_rr.c stacks/instr_s.c stacks/get_number.c stacks/index.c \
            sort/first_sort.c sort/utils.c sort/sort.c sort/controls.c sort/radix.c sort/mysort.c sort/mysort_little.c sort/mysort_utils.c sort/bubble.c sort/basics_a.c sort/basics_b.c sort/is_sorted.c \
            sort/bbeg/bbeg_sort.c sort/bbeg/bbeg_bubble.c sort/bbeg/bbeg_from_a.c sort/bbeg/bbeg_from_b.c sort/bbeg/bbeg_lists.c sort/bbeg/bbeg_utils.c
 
-SRCS_BONUS = stacks/circular_buffer.c stacks/init.c stacks/instr_p.c stacks/instr_r.c stacks/instr_rr.c stacks/instr_s.c stacks/conditions.c stacks/get_number.c stacks/index.c \
+SRCS_BONUS = stacks/circular_buffer.c stacks/init.c stacks/instr_p.c stacks/instr_r.c stacks/instr_rr.c stacks/instr_s.c stacks/get_number.c stacks/index.c \
              checker/checker.c args.c sort/is_sorted.c
 
 # Object files directory
