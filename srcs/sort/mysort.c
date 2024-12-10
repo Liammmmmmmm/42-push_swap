@@ -6,7 +6,7 @@
 /*   By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:40:43 by lilefebv          #+#    #+#             */
-/*   Updated: 2024/12/10 11:29:29 by lilefebv         ###   ########lyon.fr   */
+/*   Updated: 2024/12/10 12:30:33 by lilefebv         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,43 +103,9 @@ void	full_insert_sort(int *stack_a, int *stack_b, int *stack_sorted)
 	{
 		quickest = find_quickest_b(stack_b, 0, stack_sorted[i]);
 		if (quickest == RB)
-		{
-			if (i - 1 >= 0)
-			{
-				while (stack_b[pos_b(-1)] != stack_sorted[i] && stack_b[pos_b(-1)] != stack_sorted[i - 1])
-					rb(1);
-				pa(stack_a, stack_b, 1);
-			}
-			if (i - 1 < 0)
-				pa(stack_a, stack_b, 1);
-			else if (get_number_a(stack_a, 0) == stack_sorted[i - 1])
-			{
-				while (stack_b[pos_b(-1)] != stack_sorted[i])
-					rb(1);
-				pa(stack_a, stack_b, 1);
-				sa(stack_a, 1);
-				i--;
-			}
-		}
+			rotate_and_push(&i, stack_a, stack_b, rb);
 		else if (quickest == RRB)
-		{
-			if (i - 1 >= 0)
-			{
-				while (stack_b[pos_b(-1)] != stack_sorted[i] && stack_b[pos_b(-1)] != stack_sorted[i - 1])
-					rrb(1);
-				pa(stack_a, stack_b, 1);
-			}
-			if (i - 1 < 0)
-				pa(stack_a, stack_b, 1);
-			else if (get_number_a(stack_a, 0) == stack_sorted[i - 1])
-			{
-				while (stack_b[pos_b(-1)] != stack_sorted[i])
-					rrb(1);
-				pa(stack_a, stack_b, 1);
-				sa(stack_a, 1);
-				i--;
-			}
-		}
+			rotate_and_push(&i, stack_a, stack_b, rrb);
 		i--;
 	}
 }
