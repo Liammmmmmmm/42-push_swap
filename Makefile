@@ -6,7 +6,7 @@
 #    By: lilefebv <lilefebv@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/02 12:16:20 by lilefebv          #+#    #+#              #
-#    Updated: 2024/12/10 17:33:06 by lilefebv         ###   ########lyon.fr    #
+#    Updated: 2024/12/11 16:36:42 by lilefebv         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,12 +71,16 @@ all : libft_make start_message $(NAME)
 
 start_message:
 	@if [ ! -f $(NAME) ] || [ `for file in $(SRCS); do find $(SRC_DIR)$$file -newer $(NAME); done` ] || [ $(LIBFT) -nt $(NAME) ] || [ -f $(ALGO_DEP) ]; then \
-		echo "$(YELLOW)Starting $(YELLOW2)$(NAME)$(YELLOW) compilation...\n$(NC)";                                                     \
-	else                                                                                                                               \
-		echo "$(YELLOW)Nothing to be done for $(YELLOW2)$(NAME)$(NC)";                                                                 \
+		echo "\n$(YELLOW)╔══════════════════════════════════════════════╗$(NC)";                                                                             \
+		echo "$(YELLOW)║      Starting $(YELLOW2)$(NAME)$(YELLOW) compilation...       ║$(NC)";                                                              \
+		echo "$(YELLOW)╚══════════════════════════════════════════════╝$(NC)\n";                                                                             \
+	else                                                                                                                                                     \
+		echo "\n$(YELLOW)╔══════════════════════════════════════════════╗$(NC)";                                                                             \
+		echo "$(YELLOW)║      Nothing to be done for $(YELLOW2)$(NAME)$(YELLOW).       ║$(NC)";                                                              \
+		echo "$(YELLOW)╚══════════════════════════════════════════════╝$(NC)\n";                                                                             \
 	fi
-	@if [ -f $(ALGO_DEP) ]; then \
-		touch srcs/sort/sort.c; \
+	@if [ -f $(ALGO_DEP) ]; then  \
+		touch srcs/sort/sort.c;   \
 	fi
 
 end_message:
